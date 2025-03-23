@@ -16,7 +16,6 @@ const Home = () => {
       </p>
 
       {/* <lastesJobs /> */}
-
       <About />
       <Contact />
     </div>

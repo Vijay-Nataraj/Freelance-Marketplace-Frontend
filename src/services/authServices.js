@@ -2,12 +2,8 @@ import instance from "./instance";
 
 const authServices = {
   register: async (data) => {
-    try {
-      const response = await instance.post("/user/register", data);
-      return response.data;
-    } catch (error) {
-      throw error.response?.data || { message: "Network error" };
-    }
+    const response = await instance.post("/user/register", data);
+    return response.data;
   },
   login: async (email, password) => {
     try {

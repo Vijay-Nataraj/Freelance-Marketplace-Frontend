@@ -26,7 +26,7 @@ const Register = () => {
         if (err.response.status === 400) {
           setError("User already registered. Please log in.");
         } else if (err.response.data && err.response.data.message) {
-          setError(err.response.data.message);
+          setError(err.message);
         } else {
           setError("Registration failed. Please try again.");
         }

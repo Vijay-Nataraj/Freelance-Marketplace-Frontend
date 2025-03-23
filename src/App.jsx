@@ -11,6 +11,8 @@ import FreelancerDashboard from "./pages/FreelancerDashboard";
 import PrivateRoute from "./utils/PrivateRoute";
 import Footer from "./components/Footer";
 import { AuthProvider } from "./context/AuthContext";
+import About from "./components/About";
+import Contact from "./components/Contact";
 
 function App() {
   return (

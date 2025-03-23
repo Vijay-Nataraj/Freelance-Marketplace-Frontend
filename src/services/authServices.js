@@ -3,6 +3,7 @@ import instance from "./instance";
 const authServices = {
   register: async (data) => {
     const response = await instance.post("/user/register", data);
+    console.log(response.data);
     return response.data;
   },
   login: async (email, password) => {

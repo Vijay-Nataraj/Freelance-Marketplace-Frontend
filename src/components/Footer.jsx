@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import {
   FaFacebook,
   FaTwitter,
@@ -15,52 +16,52 @@ const Footer = () => {
           <h3 className="font-bold mb-4 text-lg">Navigate</h3>
           <ul>
             <li>
-              <a
-                href="/"
+              <Link
+                to="/"
                 className="hover:underline hover:text-blue-500 transition"
               >
                 Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/post-job"
+              <Link
+                to="/post-job"
                 className="hover:underline hover:text-blue-500 transition"
               >
                 Post a Job
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/find-freelancers"
+              <Link
+                to="/find-freelancers"
                 className="hover:underline hover:text-blue-500 transition"
               >
                 Find a Freelancer
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/find-jobs"
+              <Link
+                to="/find-jobs"
                 className="hover:underline hover:text-blue-500 transition"
               >
                 Find a Job
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/about"
+              <Link
+                to="/about"
                 className="hover:underline hover:text-blue-500 transition"
               >
                 About
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/contact"
+              <Link
+                to="/contact"
                 className="hover:underline hover:text-blue-500 transition"
               >
                 Contact us
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -68,52 +69,52 @@ const Footer = () => {
           <h3 className="font-bold mb-4 text-lg">Hire Talent</h3>
           <ul>
             <li>
-              <a
-                href="/hire-developers"
+              <Link
+                to="/hire-developers"
                 className="hover:underline hover:text-blue-500 transition"
               >
                 Hire Freelance Developers
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/hire-designers"
+              <Link
+                to="/hire-designers"
                 className="hover:underline hover:text-blue-500 transition"
               >
                 Hire Freelance Designers
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/hire-marketers"
+              <Link
+                to="/hire-marketers"
                 className="hover:underline hover:text-blue-500 transition"
               >
                 Hire Freelance Marketers
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/hire-product-managers"
+              <Link
+                to="/hire-product-managers"
                 className="hover:underline hover:text-blue-500 transition"
               >
                 Hire Freelance Product Managers
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/hire-project-managers"
+              <Link
+                to="/hire-project-managers"
                 className="hover:underline hover:text-blue-500 transition"
               >
                 Hire Freelance Project Managers
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/hire-finance-experts"
+              <Link
+                to="/hire-finance-experts"
                 className="hover:underline hover:text-blue-500 transition"
               >
                 Hire Freelance Finance Experts
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -121,52 +122,52 @@ const Footer = () => {
           <h3 className="font-bold mb-4 text-lg">Featured Skills</h3>
           <ul>
             <li>
-              <a
-                href="/skills/software-developers"
+              <Link
+                to="/skills/software-developers"
                 className="hover:underline hover:text-blue-500 transition"
               >
                 Software Developers
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/skills/mobile-app-developers"
+              <Link
+                to="/skills/mobile-app-developers"
                 className="hover:underline hover:text-blue-500 transition"
               >
                 Mobile App Developers
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/skills/full-stack-developers"
+              <Link
+                to="/skills/full-stack-developers"
                 className="hover:underline hover:text-blue-500 transition"
               >
                 Full-stack Developers
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/skills/front-end-developers"
+              <Link
+                to="/skills/front-end-developers"
                 className="hover:underline hover:text-blue-500 transition"
               >
                 Front-end Developers
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/skills/graphic-designers"
+              <Link
+                to="/skills/graphic-designers"
                 className="hover:underline hover:text-blue-500 transition"
               >
                 Graphic Designers
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/skills/seo-experts"
+              <Link
+                to="/skills/seo-experts"
                 className="hover:underline hover:text-blue-500 transition"
               >
                 SEO Experts
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -174,44 +175,44 @@ const Footer = () => {
           <h3 className="font-bold mb-4 text-lg">Resources</h3>
           <ul>
             <li>
-              <a
-                href="/faq"
+              <Link
+                to="/faq"
                 className="hover:underline hover:text-blue-500 transition"
               >
                 FAQs
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/help-center"
+              <Link
+                to="/help-center"
                 className="hover:underline hover:text-blue-500 transition"
               >
                 Help Center
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/blog"
+              <Link
+                to="/blog"
                 className="hover:underline hover:text-blue-500 transition"
               >
                 Blog
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/terms"
+              <Link
+                to="/terms"
                 className="hover:underline hover:text-blue-500 transition"
               >
                 Terms of Service
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/privacy"
+              <Link
+                to="/privacy"
                 className="hover:underline hover:text-blue-500 transition"
               >
                 Privacy Policy
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

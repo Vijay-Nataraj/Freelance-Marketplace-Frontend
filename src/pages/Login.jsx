@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import authServices from "../services/authServices";
 import { useAuth } from "../context/AuthContext";
 
@@ -88,19 +88,19 @@ const Login = () => {
           </div>
 
           <div className="mt-3 text-center">
-            <a
-              href="/forgot-password"
+            <Link
+              to="/forgot-password"
               className="text-sm text-indigo-600 hover:text-indigo-500"
             >
               Forgotten password?
-            </a>
+            </Link>
             &nbsp; &nbsp;
-            <a
-              href="/register"
+            <Link
+              to="/register"
               className="text-sm text-indigo-600 hover:text-indigo-500"
             >
               Register
-            </a>
+            </Link>
           </div>
         </form>
       </div>

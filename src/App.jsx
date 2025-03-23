@@ -11,6 +11,8 @@ import FreelancerDashboard from "./pages/FreelancerDashboard";
 import PrivateRoute from "./utils/PrivateRoute";
 import Footer from "./components/Footer";
 import { AuthProvider } from "./context/AuthContext";
+import About from "./components/About.jsx";
+import Contact from "./components/Contact.jsx";
 
 function App() {
   return (
@@ -39,6 +41,8 @@ function App() {
               </PrivateRoute>
             }
           />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
       </Router>
       <Footer />

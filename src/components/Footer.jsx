@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import {
   FaFacebook,
   FaTwitter,
@@ -7,6 +6,7 @@ import {
   FaInstagram,
   FaYoutube,
 } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (

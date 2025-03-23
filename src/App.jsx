@@ -11,8 +11,6 @@ import FreelancerDashboard from "./pages/FreelancerDashboard";
 import PrivateRoute from "./utils/PrivateRoute";
 import Footer from "./components/Footer";
 import { AuthProvider } from "./context/AuthContext";
-import About from "./components/About.jsx";
-import Contact from "./components/Contact.jsx";
 
 function App() {
   return (
@@ -25,6 +23,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/reset-password/:token" element={<ResetPassword />} />
+
           <Route
             path="/client-dashboard"
             element={
@@ -41,11 +40,12 @@ function App() {
               </PrivateRoute>
             }
           />
+
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
+        <Footer />
       </Router>
-      <Footer />
     </AuthProvider>
   );
 }

@@ -22,7 +22,7 @@ const Login = () => {
       const { role } = user;
 
       if (token) {
-        login(user);
+        login(response, user, token);
         // Navigate based on user role
         if (role === "client") {
           navigate("/client-dashboard");

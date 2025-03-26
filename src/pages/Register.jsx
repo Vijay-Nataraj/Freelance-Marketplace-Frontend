@@ -22,7 +22,7 @@ const Register = () => {
       });
       navigate("/login");
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       if (err.response) {
         if (err.response.status === 400) {
           setError("User already registered. Please log in.");

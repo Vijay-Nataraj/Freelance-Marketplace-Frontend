@@ -1,34 +1,18 @@
 import React, { useState, useEffect } from "react";
-import instance from "../services/instance";
+import LatestJobs from "../components/LatestJobs";
+import { Outlet } from "react-router-dom";
+import FreelancerContracts from "../components/FreelancerContracts";
 
 const FreelancerDashboard = () => {
-  const [loading, setLoading] = useState(true);
-  const [data, setData] = useState(null);
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await instance.get("/services/all");
-  //       const result = await response.json();
-  //       setData(result);
-  //     } catch (error) {
-  //       console.error("Error fetching dashboard data:", error);
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
-
-  //   fetchData();
-  // }, []);
-
-  // if (loading) {
-  //   return <div>Loading...</div>;
-  // }
-
   return (
     <div>
-      <h1>Welcome to Freelancer Dashboard</h1>
-      {/* <div>{JSON.stringify(data)}</div> */}
+      <h1 className="text-4xl font-bold text-gray-800">
+        Welcome to Freelancer Dashboard
+      </h1>
+
+      <Outlet />
+      <LatestJobs />
+      <FreelancerContracts />
     </div>
   );
 };

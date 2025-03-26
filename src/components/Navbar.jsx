@@ -13,10 +13,7 @@ const Navbar = () => {
     <nav className="bg-gray-900 text-white px-4 py-3 shadow-lg mb-2">
       <div className="container mx-auto flex justify-between items-center">
         <div>
-          <Link
-            to="/"
-            className="text-2xl font-bold hover:text-blue-500 transition duration-300"
-          >
+          <Link className="text-2xl font-bold hover:text-blue-500 transition duration-300">
             Freelance Marketplace
           </Link>
         </div>
@@ -51,19 +48,14 @@ const Navbar = () => {
                 </>
               )}
 
-              <NavLink
-                to="/dashboard"
-                className={({ isActive }) =>
-                  isActive
-                    ? "text-yellow-300 font-bold"
-                    : "hover:text-blue-500 transition duration-300"
-                }
-              >
-                Dashboard
-              </NavLink>
-
               {user.role === "freelancer" && (
                 <>
+                  <NavLink
+                    to="/freelancer-dashboard"
+                    className={"hover:text-blue-500 transition duration-300"}
+                  >
+                    Dashboard
+                  </NavLink>
                   <NavLink
                     to="/create-service"
                     className={({ isActive }) =>
@@ -90,7 +82,13 @@ const Navbar = () => {
               {user.role === "client" && (
                 <>
                   <NavLink
-                    to="/post-job"
+                    to="/client-dashboard"
+                    className={"hover:text-blue-500 transition duration-300"}
+                  >
+                    Dashboard
+                  </NavLink>
+                  <NavLink
+                    to="/client-dashboard/create-job"
                     className={({ isActive }) =>
                       isActive
                         ? "text-yellow-300 font-bold"
@@ -100,7 +98,7 @@ const Navbar = () => {
                     Post a Job
                   </NavLink>
                   <NavLink
-                    to="/find-freelancer"
+                    to="/client-dashboard/find-freelancer"
                     className={({ isActive }) =>
                       isActive
                         ? "text-yellow-300 font-bold"
@@ -109,10 +107,17 @@ const Navbar = () => {
                   >
                     Find a Freelancer
                   </NavLink>
+                  <NavLink
+                    to="/payment"
+                    className="text-white hover:text-blue-400 transition"
+                    style={{ textDecoration: "none" }}
+                  >
+                    Payment
+                  </NavLink>
                 </>
               )}
 
-              <Link to="/profile">
+              <Link to="/client-dashboard/profile">
                 <i className="bi bi-person-circle text-xl hover:ring-0"></i>
               </Link>
 
@@ -154,12 +159,6 @@ const Navbar = () => {
           {user ? (
             <>
               <Link
-                to="/dashboard"
-                className="block hover:text-blue-500 transition duration-300"
-              >
-                Dashboard
-              </Link>
-              <Link
                 to="/profile"
                 className="block hover:text-blue-500 transition duration-300"
               >
@@ -167,6 +166,12 @@ const Navbar = () => {
               </Link>
               {user.role === "freelancer" && (
                 <>
+                  <Link
+                    to="/freelancer-dashboard"
+                    className="block hover:text-blue-500 transition duration-300"
+                  >
+                    Dashboard
+                  </Link>
                   <Link
                     to="/create-service"
                     className="block hover:text-blue-500 transition duration-300"
@@ -184,6 +189,12 @@ const Navbar = () => {
               {user.role === "client" && (
                 <>
                   <Link
+                    to="/client-dashboard"
+                    className="block hover:text-blue-500 transition duration-300"
+                  >
+                    Dashboard
+                  </Link>
+                  <Link
                     to="/post-job"
                     className="block hover:text-blue-500 transition duration-300"
                   >
@@ -194,6 +205,13 @@ const Navbar = () => {
                     className="block hover:text-blue-500 transition duration-300"
                   >
                     Find a Freelancer
+                  </Link>
+                  <Link
+                    to="/payment"
+                    className="text-white hover:text-blue-400 transition"
+                    style={{ textDecoration: "none" }}
+                  >
+                    Payment
                   </Link>
                 </>
               )}

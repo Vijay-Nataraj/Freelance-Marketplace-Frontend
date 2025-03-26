@@ -25,7 +25,7 @@ const Footer = () => {
             </li>
             <li>
               <Link
-                to="/post-job"
+                to="/client-dashboard/create-job"
                 className="hover:underline hover:text-blue-500 transition"
               >
                 Post a Job
@@ -33,7 +33,7 @@ const Footer = () => {
             </li>
             <li>
               <Link
-                to="/find-freelancers"
+                to="/client-dashboard/find-freelancer"
                 className="hover:underline hover:text-blue-500 transition"
               >
                 Find a Freelancer
@@ -41,7 +41,7 @@ const Footer = () => {
             </li>
             <li>
               <Link
-                to="/find-jobs"
+                to="/freelancer-dashboard/find-jobs"
                 className="hover:underline hover:text-blue-500 transition"
               >
                 Find a Job

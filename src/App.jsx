@@ -13,11 +13,17 @@ import Footer from "./components/Footer";
 import { AuthProvider } from "./context/AuthContext";
 import About from "./components/About";
 import Contact from "./components/Contact";
+import CreateJob from "./components/CreateJob";
+import FindFreelancer from "./components/FindFreelancer";
+import SendProposal from "./components/SendProposal";
+import ContractForm from "./components/ContractForm";
+import PaymentPage from "./pages/PaymentPage";
+import Payment from "./components/Payment";
 
 function App() {
   return (
-    <AuthProvider>
-      <Router>
+    <Router>
+      <AuthProvider>
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -25,7 +31,6 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/reset-password/:token" element={<ResetPassword />} />
-
           <Route
             path="/client-dashboard"
             element={
@@ -33,7 +38,11 @@ function App() {
                 <ClientDashboard />
               </PrivateRoute>
             }
-          />
+          >
+            <Route path="create-job" element={<CreateJob />} />
+            <Route path="find-freelancer" element={<FindFreelancer />} />
+          </Route>
+
           <Route
             path="/freelancer-dashboard"
             element={
@@ -41,14 +50,18 @@ function App() {
                 <FreelancerDashboard />
               </PrivateRoute>
             }
-          />
+          >
+            <Route path="send-proposal" element={<SendProposal />} />
+          </Route>
+          <Route path="/contract-form/:jobId" element={<ContractForm />} />
 
           <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route path="/contact" element={<ContractForm />} />
+          <Route path="/payment" element={<Payment />} />
         </Routes>
         <Footer />
-      </Router>
-    </AuthProvider>
+      </AuthProvider>
+    </Router>
   );
 }
 

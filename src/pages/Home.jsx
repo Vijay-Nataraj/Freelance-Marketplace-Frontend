@@ -1,6 +1,7 @@
 import React from "react";
 import About from "../components/About";
 import Contact from "../components/Contact";
+import LatestJobs from "../components/LatestJobs";
 
 const Home = () => {
   return (
@@ -14,6 +15,8 @@ const Home = () => {
         <span className="text-[#f70515]"> freelancers </span>and
         <span className="text-[#f70515]"> clients</span>.
       </p>
+
+      <LatestJobs />
 
       <About />
       <Contact />

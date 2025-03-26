@@ -57,7 +57,7 @@ const Navbar = () => {
                     Dashboard
                   </NavLink>
                   <NavLink
-                    to="/create-service"
+                    to="/freelancer-dashboard/services/create-service"
                     className={({ isActive }) =>
                       isActive
                         ? "text-yellow-300 font-bold"

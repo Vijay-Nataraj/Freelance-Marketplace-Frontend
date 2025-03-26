@@ -163,7 +163,7 @@ const Navbar = () => {
                     Dashboard
                   </Link>
                   <Link
-                    to="/create-service"
+                    to="/freelancer-dashboard/services/create-service"
                     className="block hover:text-blue-500 transition duration-300"
                   >
                     Create Service

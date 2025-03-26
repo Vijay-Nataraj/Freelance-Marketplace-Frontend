@@ -19,6 +19,7 @@ import SendProposal from "./components/SendProposal";
 import ContractForm from "./components/ContractForm";
 import PaymentPage from "./pages/PaymentPage";
 import Payment from "./components/Payment";
+import CreateService from "./pages/CreateService";
 
 function App() {
   return (
@@ -52,6 +53,7 @@ function App() {
             }
           >
             <Route path="send-proposal" element={<SendProposal />} />
+            <Route path="services/create" element={<CreateService />} />
           </Route>
           <Route path="/contract-form/:jobId" element={<ContractForm />} />
 

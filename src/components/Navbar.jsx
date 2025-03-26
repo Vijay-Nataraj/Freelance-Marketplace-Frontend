@@ -66,16 +66,6 @@ const Navbar = () => {
                   >
                     Create a Service
                   </NavLink>
-                  <NavLink
-                    to="/my-services"
-                    className={({ isActive }) =>
-                      isActive
-                        ? "text-yellow-300 font-bold"
-                        : "hover:text-blue-500 transition duration-300"
-                    }
-                  >
-                    My Services
-                  </NavLink>
                 </>
               )}
 
@@ -177,12 +167,6 @@ const Navbar = () => {
                     className="block hover:text-blue-500 transition duration-300"
                   >
                     Create Service
-                  </Link>
-                  <Link
-                    to="/my-services"
-                    className="block hover:text-blue-500 transition duration-300"
-                  >
-                    My Services
                   </Link>
                 </>
               )}

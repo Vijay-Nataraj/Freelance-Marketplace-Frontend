@@ -53,7 +53,7 @@ function App() {
             }
           >
             <Route path="send-proposal" element={<SendProposal />} />
-            <Route path="services/create" element={<CreateService />} />
+            <Route path="services/create-service" element={<CreateService />} />
           </Route>
           <Route path="/contract-form/:jobId" element={<ContractForm />} />
 

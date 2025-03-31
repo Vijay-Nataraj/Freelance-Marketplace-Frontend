@@ -97,13 +97,13 @@ const Navbar = () => {
                   >
                     Find a Freelancer
                   </NavLink>
-                  <NavLink
+                  {/* <NavLink
                     to="/payment"
                     className="text-white hover:text-blue-400 transition"
                     style={{ textDecoration: "none" }}
                   >
                     Payment
-                  </NavLink>
+                  </NavLink> */}
                 </>
               )}
 

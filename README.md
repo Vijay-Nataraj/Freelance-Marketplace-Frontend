@@ -128,3 +128,15 @@ The `FreelancerSearch` component allows clients to search for freelancers based 
 ### Payment
 
 The `Payment` component facilitates the payment process on the platform, allowing for transactions between clients and freelancers.
+
+## try
+
+### Client:
+
+- Email : google@gmail.com
+- password: 12345
+
+### Freelancer:
+
+- Email : krish@gmail.com
+- password: 12345

@@ -41,8 +41,8 @@ const JobListing = () => {
   ) => {
     setIsProposalUpdating(true);
     try {
-      // Update proposal status
-      await proposalServices.updateProposalStatus({ id, freelancerId, status });
+      const payload = { id, freelancerId, status };
+      await proposalServices.updateProposalStatus(payload);
 
       if (status === "Accepted") {
         navigate(`/contract-form/${jobId}`);
@@ -52,8 +52,9 @@ const JobListing = () => {
         );
       }
 
-      const updatedProposals = await proposalServices.getProposalsForClient();
-      setProposals(updatedProposals.data);
+      setProposals((prevProposals) =>
+        prevProposals.filter((proposal) => proposal._id !== id)
+      );
     } catch (err) {
       console.error("Error updating proposal status:", err);
       alert("Failed to update proposal status.");
@@ -156,8 +157,10 @@ const JobListing = () => {
                               onClick={() =>
                                 handleUpdateProposalStatus(
                                   proposal._id,
+                                  proposal.freelancerId._id,
                                   "Rejected",
-                                  job._id
+                                  job._id,
+                                  job.title
                                 )
                               }
                               className="bg-red-500 text-white px-4 py-2 rounded-lg"

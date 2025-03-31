@@ -21,6 +21,11 @@ const CreateService = () => {
         ...serviceData,
         [name]: value.split(",").map((item) => item.trim()),
       });
+    } else if (name === "price") {
+      setServiceData({
+        ...serviceData,
+        [name]: value ? parseFloat(value) : "",
+      });
     } else {
       setServiceData({ ...serviceData, [name]: value });
     }
@@ -67,7 +72,7 @@ const CreateService = () => {
             name="price"
             value={serviceData.price}
             onChange={handleChange}
-            placeholder="Price"
+            placeholder="price"
             required
             className="w-full border border-gray-300 rounded-lg p-3 text-gray-700 focus:ring focus:ring-blue-300 focus:outline-none"
           />

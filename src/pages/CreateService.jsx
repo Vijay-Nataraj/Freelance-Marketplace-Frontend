@@ -32,7 +32,7 @@ const CreateService = () => {
     try {
       const response = await serviceServices.createService(serviceData);
       console.log("Service created successfully!", response);
-      navigate("/user/freelancer-dashboard/");
+      navigate("/freelancer-dashboard/");
     } catch (error) {
       console.error("Failed to create service!", error.response || error);
     }

@@ -18,8 +18,9 @@ import FindFreelancer from "./components/FindFreelancer";
 import SendProposal from "./components/SendProposal";
 import ContractForm from "./components/ContractForm";
 import PaymentPage from "./pages/PaymentPage";
-import Payment from "./components/Payment";
 import CreateService from "./pages/CreateService";
+import PaymentVerification from "./components/PaymentVerification";
+import Profile from "./components/Profile";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/reset-password/:token" element={<ResetPassword />} />
+          <Route path="/Profile" element={<Profile />} />
           <Route
             path="/client-dashboard"
             element={
@@ -59,7 +61,11 @@ function App() {
 
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<ContractForm />} />
-          <Route path="/payment" element={<Payment />} />
+          <Route path="/payment/:contractId" element={<PaymentPage />} />
+          <Route
+            path="/payment-verification"
+            element={<PaymentVerification />}
+          />
         </Routes>
         <Footer />
       </AuthProvider>

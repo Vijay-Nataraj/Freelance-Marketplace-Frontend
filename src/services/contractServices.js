@@ -12,10 +12,32 @@ const contractServices = {
   },
 
   getContractsForFreelancer: async () => {
-    return await instance.get("/contract/for-freelancer");
+    try {
+      const response = await instance.get("/contract/for-freelancer", {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      return response.data;
+    } catch (error) {
+      console.error("Error fetching contracts:", error.response || error);
+      throw error;
+    }
   },
 
-  // You can add other methods like getting contracts for the client
+  getContractById: async (contractId) => {
+    try {
+      const response = await instance.get(`/contract/${contractId}`, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      return response.data;
+    } catch (error) {
+      console.error("Error fetching contracts:", error.response || error);
+      throw error;
+    }
+  },
 };
 
 export default contractServices;

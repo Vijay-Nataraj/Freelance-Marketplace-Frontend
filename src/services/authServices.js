@@ -32,6 +32,14 @@ const authServices = {
       throw error.response?.data || { message: "Network error" };
     }
   },
+
+  getUserDetails: async () => {
+    return await instance.get("/user");
+  },
+
+  updateUserDetails: async (userData) => {
+    return await instance.put("/user", userData);
+  },
 };
 
 export default authServices;

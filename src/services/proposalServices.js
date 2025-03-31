@@ -13,16 +13,18 @@ const proposalServices = {
   getProposalsForClient: async () => {
     return await instance.get("/proposal/for-client");
   },
-  updateProposalStatus: async ({ id, status }) => {
-    return await instance.put(
+  updateProposalStatus: async (payload) => {
+    const { id, freelancerId, status } = payload;
+    const response = await instance.put(
       `/proposal/update/${id}`,
-      { status },
+      { freelancerId, status },
       {
         headers: {
           "Content-Type": "application/json",
         },
       }
     );
+    return response.data;
   },
   getProposalsForJob: async (jobId) => {
     try {

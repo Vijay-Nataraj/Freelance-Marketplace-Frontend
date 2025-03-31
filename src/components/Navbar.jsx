@@ -107,7 +107,7 @@ const Navbar = () => {
                 </>
               )}
 
-              <Link to="/client-dashboard/profile">
+              <Link to="/profile">
                 <i className="bi bi-person-circle text-xl hover:ring-0"></i>
               </Link>
 

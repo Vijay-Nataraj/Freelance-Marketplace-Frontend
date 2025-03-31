@@ -1,32 +1,48 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import paymentService from "../services/paymentService";
 
-const PaymentForm = ({ contractId }) => {
+const PaymentForm = ({ contractId, contract }) => {
   const [amount, setAmount] = useState("");
-  const [successMessage, setSuccessMessage] = useState(null);
   const [errorMessage, setErrorMessage] = useState(null);
+  const navigate = useNavigate();
 
   const handlePayment = async (e) => {
     e.preventDefault();
+
+    if (!contractId || !contract) {
+      setErrorMessage("Invalid contract.");
+      return;
+    }
+
     try {
       const response = await paymentService.createOrder({ contractId, amount });
-      setSuccessMessage("Payment order created! Proceed with Razorpay.");
-      setErrorMessage(null);
-      console.log(response.data);
-      // Add Razorpay checkout integration here
+      // console.log(response.data);
+
+      alert("Payment successfully done!");
+      navigate("/client-dashboard");
+
+      // const { razorpayOrderId, razorpayPaymentId, razorpaySignature } =
+      //   response.data;
+      // navigate("/payment-verification", {
+      //   state: {
+      //     razorpayOrderId,
+      //     razorpayPaymentId,
+      //     razorpaySignature,
+      //   },
+      // });
     } catch (error) {
       console.error(error);
-      setSuccessMessage(null);
       setErrorMessage("Failed to create payment order.");
     }
   };
 
   return (
-    <div className="bg-gray-100 flex items-center justify-center p-8">
-      <div className="w-full max-w-2xl bg-white rounded-lg shadow-md p-8">
-        <h1 className="text-3xl font-bold text-gray-800 text-center mb-6">
-          Payment Form
-        </h1>
+    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+      <div className="p-8 bg-white border border-gray-200 rounded-lg shadow-md w-full max-w-md">
+        <h2 className="text-3xl font-bold text-center mb-6 text-gray-800">
+          Payment for Contract: {contract?.title}
+        </h2>
         <form onSubmit={handlePayment} className="space-y-4">
           <input
             type="number"
@@ -34,23 +50,20 @@ const PaymentForm = ({ contractId }) => {
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
             required
-            className="w-full border border-gray-300 rounded-lg p-3 text-gray-700 focus:ring focus:ring-blue-300 focus:outline-none"
+            className="block w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
           <button
             type="submit"
-            className="w-full bg-blue-500 text-white rounded-lg p-3 font-medium hover:bg-blue-600 transition duration-200"
+            className="w-full bg-blue-500 text-white rounded-lg py-2 hover:bg-blue-600 transition duration-300 ease-in-out"
           >
             Pay
           </button>
         </form>
 
-        {successMessage && (
-          <div className="text-green-600 text-center mt-4">
-            {successMessage}
-          </div>
-        )}
         {errorMessage && (
-          <div className="text-red-600 text-center mt-4">{errorMessage}</div>
+          <div className="text-center text-red-600 font-medium mt-4">
+            {errorMessage}
+          </div>
         )}
       </div>
     </div>

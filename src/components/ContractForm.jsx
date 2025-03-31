@@ -2,16 +2,16 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import contractServices from "../services/contractServices";
 import jobServices from "../services/jobServices";
-import proposalServices from "../services/proposalServices"; // Correct service for proposals
+import proposalServices from "../services/proposalServices";
 
 const ContractForm = () => {
   const { jobId } = useParams();
   const navigate = useNavigate();
 
   const [job, setJob] = useState({});
-  const [freelancerId, setFreelancerId] = useState(null); // Store freelancerId
+  const [freelancerId, setFreelancerId] = useState(null);
   const [milestones, setMilestones] = useState([
-    { description: "", dueDate: "", payment: "" },
+    { description: "", dueDate: "", payment: "", status: "Not Started" },
   ]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -19,23 +19,21 @@ const ContractForm = () => {
   useEffect(() => {
     const fetchJobDetails = async () => {
       try {
-        // Fetch job details
         const jobResponse = await jobServices.getJobById(jobId);
         setJob(jobResponse.data);
 
-        // Fetch proposals related to the job
         const proposalsResponse = await proposalServices.getProposalsForJob(
           jobId
         );
 
-        // Assuming proposal.status is where we check for the accepted proposal
         const acceptedProposal = proposalsResponse.find(
           (proposal) => proposal.status === "Accepted"
         );
 
         if (acceptedProposal) {
-          setFreelancerId(acceptedProposal.freelancerId._id); // Assuming freelancerId is in freelancerId._id
+          setFreelancerId(acceptedProposal.freelancerId);
         }
+        // console.log(freelancerId, acceptedProposal);
 
         setLoading(false);
       } catch (err) {
@@ -51,7 +49,7 @@ const ContractForm = () => {
   const handleAddMilestone = () => {
     setMilestones([
       ...milestones,
-      { description: "", dueDate: "", payment: "" },
+      { description: "", dueDate: "", payment: "", status: "Not Started" },
     ]);
   };
 
@@ -71,14 +69,17 @@ const ContractForm = () => {
 
     const contractData = {
       jobId,
-      freelancerId, // Use the freelancerId from accepted proposal
+      freelancerId,
       milestones,
     };
 
     try {
-      await contractServices.createContract(contractData);
+      const response = await contractServices.createContract(contractData);
+      const { message, newContract } = response.data;
+      // console.log(newContract._id);
+      const contractId = newContract._id;
       alert("Contract created successfully!");
-      navigate("/client-dashboard");
+      navigate(`/payment/${contractId}`);
     } catch (err) {
       console.error("Error creating contract:", err);
       setError("Failed to create contract.");
@@ -146,6 +147,21 @@ const ContractForm = () => {
                   placeholder="Enter milestone payment"
                   required
                 />
+              </div>
+
+              <div className="mb-4">
+                <label className="block text-gray-700">Status</label>
+                <select
+                  value={milestone.status}
+                  onChange={(e) =>
+                    handleMilestoneChange(index, "status", e.target.value)
+                  }
+                  className="w-full border border-gray-300 rounded-lg p-2"
+                >
+                  <option value="Not Started">Not Started</option>
+                  <option value="Started">Started</option>
+                  <option value="Completed">Completed</option>
+                </select>
               </div>
             </div>
           ))}

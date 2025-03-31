@@ -11,7 +11,13 @@ const serviceServices = {
     return await instance.get("/services/");
   },
   createService: async (data) => {
-    return await instance.post("/services/create", data);
+    try {
+      console.log(data);
+      const response = await instance.post("/services/create", data);
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
   },
   getServiceById: async (serviceID, token) => {
     return await instance.get(`/services/${serviceID}`);
